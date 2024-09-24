@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# chocoZAP-CRM-backend-team1
+>>>>>>> a1db2a4b03edc185c4f375a796de2cf6e56b3f46
