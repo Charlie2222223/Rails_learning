@@ -1,3 +1,19 @@
+
+## 環境構築手順
+
+### ビルド
+```bash
+docker compose build --no-cache
+```
+
+### コンテナを起動
+```bash
+docker compose up
+```
+
+http://localhost:3000/ にアクセスしてブラウザにプロジェクトが表示されることを確認する
+
+
 <<<<<<< HEAD
 # README
 
