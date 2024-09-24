@@ -1,0 +1,176 @@
+openapi: "3.0.0"
+servers:
+  - url: "http://localhost:3000"
+    description: "API Backend"
+info:
+  title: "API仕様書"
+  version: "1.0.0"
+  description: "CRMのバックエンドで使用しているAPIの仕様書である"
+tags:
+  - name: "user"
+    description: "ユーザー関連"
+  - name: "department"
+    description: "部署関連"
+  - name: "skill"
+    description: "スキル関連"
+paths:
+  /users:
+    get:
+      summary: "ユーザー一覧取得"
+      description: "リクエストがあった場合は、DBに登録されているユーザーの情報を全権取得し、レスポンスとして返すエンドポイントです。"
+      tags:
+        - "user"
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          content:
+            application/json:
+              schema:
+                type: "string"
+    post:
+      summary: "ユーザー作成"
+      description: "新しいユーザーを作成するエンドポイントです。"
+      tags:
+        - "user"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "string"
+      responses:
+        201:
+          description: "作成成功時のレスポンス"
+          content:
+            application/json:
+              schema:
+                type: "string"
+  /users/{user_id}:
+    get:
+      summary: "ユーザー詳細"
+      description: "user_idで特定のユーザーの詳細情報を取得することができるエンドポイントです。<br>店舗検索で取得したuser_idでリクエストを送りユーザーの詳細情報を返します"
+      tags:
+        - "user"
+      parameters:
+        - name: "user_id"
+          in: "path"
+          description: "user_idで特定のユーザーの詳細情報を取得できます。"
+          required: true
+          schema:
+            type: "integer"
+          example: 1
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          content:
+            application/json:
+              schema:
+                type: "string"
+    put:
+      summary: "ユーザー更新"
+      description: "指定されたuser_idのユーザー情報を更新するエンドポイントです。"
+      tags:
+        - "user"
+      parameters:
+        - name: "user_id"
+          in: "path"
+          description: "更新するユーザーのID"
+          required: true
+          schema:
+            type: "integer"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "string"
+      responses:
+        200:
+          description: "更新成功時のレスポンス"
+          content:
+            application/json:
+              schema:
+                type: "string"
+    delete:
+      summary: "ユーザー削除"
+      description: "指定されたuser_idのユーザーを削除するエンドポイントです。"
+      tags:
+        - "user"
+      parameters:
+        - name: "user_id"
+          in: "path"
+          description: "削除するユーザーのID"
+          required: true
+          schema:
+            type: "integer"
+      responses:
+        204:
+          description: "削除成功時のレスポンス"
+  /departments:
+    get:
+      summary: "部署一覧取得"
+      description: "全ての部署の情報を取得するエンドポイントです。"
+      tags:
+        - "department"
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          content:
+            application/json:
+              schema:
+                type: "string"
+  /departments/{department_id}:
+    get:
+      summary: "部署詳細"
+      description: "指定されたdepartment_idの部署の詳細情報を取得するエンドポイントです。"
+      tags:
+        - "department"
+      parameters:
+        - name: "department_id"
+          in: "path"
+          description: "特定の部署の詳細情報を取得します。"
+          required: true
+          schema:
+            type: "integer"
+          example: 1
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          content:
+            application/json:
+              schema:
+                type: "string"
+  /skills:
+    get:
+      summary: "スキル一覧取得"
+      description: "全てのスキルの情報を取得するエンドポイントです。"
+      tags:
+        - "skill"
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          content:
+            application/json:
+              schema:
+                type: "string"
+  /skills/{skill_id}:
+    get:
+      summary: "スキル詳細"
+      description: "指定されたskill_idのスキルの詳細情報を取得するエンドポイントです。"
+      tags:
+        - "skill"
+      parameters:
+        - name: "skill_id"
+          in: "path"
+          description: "特定のスキルの詳細情報を取得します。"
+          required: true
+          schema:
+            type: "integer"
+          example: 1
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          content:
+            application/json:
+              schema:
+                type: "string"
