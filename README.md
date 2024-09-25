@@ -11,6 +11,11 @@ docker compose build --no-cache
 docker compose up
 ```
 
+### データベースを作成
+```bash
+docker-compose exec web rails db:create
+```
+
 http://localhost:3000/ にアクセスしてブラウザにプロジェクトが表示されることを確認する
 
 
