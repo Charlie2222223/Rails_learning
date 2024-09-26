@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_26_055627) do
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "departments_id"
+    t.bigint "department_id"
     t.string "name"
     t.string "ruby"
     t.string "sex"
@@ -40,19 +40,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_26_055627) do
     t.date "birthday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["departments_id"], name: "index_users_on_departments_id"
+    t.index ["department_id"], name: "index_users_on_department_id"
   end
 
   create_table "users_skills", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "users_id"
-    t.bigint "skills_id"
+    t.bigint "user_id"
+    t.bigint "skill_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["skills_id"], name: "index_users_skills_on_skills_id"
-    t.index ["users_id"], name: "index_users_skills_on_users_id"
+    t.index ["skill_id"], name: "index_users_skills_on_skill_id"
+    t.index ["user_id"], name: "index_users_skills_on_user_id"
   end
 
-  add_foreign_key "users", "departments", column: "departments_id"
-  add_foreign_key "users_skills", "skills", column: "skills_id"
-  add_foreign_key "users_skills", "users", column: "users_id"
+  add_foreign_key "users", "departments"
+  add_foreign_key "users_skills", "skills"
+  add_foreign_key "users_skills", "users"
 end
