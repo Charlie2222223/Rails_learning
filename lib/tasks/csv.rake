@@ -1,9 +1,8 @@
 namespace :import do
-  desc "Import users from CSV"
   task users: :environment do
     require 'csv'
 
-    csv_file_path = Rails.root.join('db', 'data', 'test.csv')
+    csv_file_path = Rails.root.join('db', 'csv', 'test.csv')
     
     CSV.foreach(csv_file_path, headers: true) do |row|
       # 既存のユーザーは更新せず、新規作成のみ行う
