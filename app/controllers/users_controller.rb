@@ -7,10 +7,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
-    @user = User.new
-  end
-
   def create
     @user = User.new(user_params)
     if @user.save
@@ -21,16 +17,13 @@ class UsersController < ApplicationController
 
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user
     else
       render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -40,8 +33,8 @@ class UsersController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
-  private user_params
-    def
+  private 
+    def   user_params
       params.require(:user).permit(:department_id, :name, :ruby, :sex, :tel, 
                                   :mobile, :mail,:zip, :address1, :address2, 
                                   :address3, :address4, :address5,:birthday)
