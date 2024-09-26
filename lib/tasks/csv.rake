@@ -36,7 +36,7 @@ namespace :import do
       User.insert_all(user_data)
       puts "ユーザーを #{user_data.size} 件、正常に登録しました。"
     rescue => e
-      puts "ユーザーのイ登録中にエラーが発生しました: #{e.message}"
+      puts "ユーザーの登録中にエラーが発生しました: #{e.message}"
       puts "エラー件数: #{error_count}"
     end
 
