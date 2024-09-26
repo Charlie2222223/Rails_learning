@@ -1,13 +1,11 @@
-# lib/tasks/import_users.rake
+# lib/tasks/csv.rake
 namespace :import do
   desc "Import users from CSV"
   task users: :environment do
     require 'csv'
 
     csv_file_path = Rails.root.join('db', 'csv', 'test.csv')
-
     error_count = 0
-
     user_data = []
 
     CSV.foreach(csv_file_path, headers: true) do |row|
@@ -29,12 +27,20 @@ namespace :import do
         }
       rescue => e
         error_count += 1
+        puts "行の処理中にエラーが発生しました: #{e.message}"
       end
-
     end
-  
-    User.insert_all(user_data)
 
-    # puts "error件数#{error_count}"
+    # バルクインサートの実行
+    begin
+      User.insert_all(user_data)
+      puts "ユーザーを #{user_data.size} 件、正常に登録しました。"
+    rescue => e
+      puts "ユーザーのイ登録中にエラーが発生しました: #{e.message}"
+      puts "エラー件数: #{error_count}"
+    end
+
+  rescue => e
+    puts "CSVファイルの読み込み中にエラーが発生しました: #{e.message}"
   end
 end
