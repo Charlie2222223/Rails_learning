@@ -1,42 +1,43 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :update, :destroy]
+
   def index
     @users = User.all
+    render json: @users
   end
 
   def show
-    @user = User.find(params[:id])
+    render json: @user
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to @user
+      render json: @user, status: :created
     else
-      render :new, status: :unprocessable_entity
+      render json: @user.errors, status: :unprocessable_entity
     end
-
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to @user
+      render json: @user
     else
-      render :edit, status: :unprocessable_entity
+      render json: @user.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
-
-    redirect_to root_path, status: :see_other
+    head :no_content
   end
 
   private 
-    def   user_params
-      params.require(:user).permit(:department_id, :name, :ruby, :sex, :tel, 
-                                  :mobile, :mail,:zip, :address1, :address2, 
-                                  :address3, :address4, :address5,:birthday)
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:department_id, :name, :ruby, :sex, :tel, :mobile, :mail, :zip, :address1, :address2, :address3, :address4, :address5, :birthday)
+  end
 end
