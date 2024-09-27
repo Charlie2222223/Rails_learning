@@ -17,7 +17,7 @@ one:
   birthday: 2024-09-26
 
 two:
-  department_id: 1
+  department_id: 2
   name: MyString
   ruby: MyString
   sex: MyString
