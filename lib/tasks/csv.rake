@@ -25,9 +25,9 @@ namespace :import do
             address5: row['address5'].blank? ? "入力されてません" : row['address5'],
             birthday: row['birthday']
           }
-        rescue ActiveRecord::StatementInvalid => e
+        rescue => e 
           error_count += 1
-          puts "SQLエラーが発生しました: #{e.message}"
+          puts "行の処理中にエラーが発生しました: #{e.message}"
           raise ActiveRecord::Rollback # トランザクションをロールバックする
         end
       end
@@ -37,8 +37,10 @@ namespace :import do
         User.insert_all(user_data)
         puts "ユーザーを #{user_data.size} 件、正常に登録しました。"
       rescue => e
+        error_count += 1
         puts "ユーザーの登録中にエラーが発生しました: #{e.message}"
         puts "エラー件数: #{error_count}"
+        raise ActiveRecord::Rollback # トランザクションをロールバックする
       end
     end 
 
