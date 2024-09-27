@@ -14,7 +14,7 @@ set :environment, rails_env
 set :output, "#{Rails.root}/log/cron.log"
 
 # 1分毎にrakeタスクを実行
-every 1.minute do # 注意: '1.minutes' から '1.minute' に変更
+every 1.minute do 
   rake 'import:users'
 end
 
