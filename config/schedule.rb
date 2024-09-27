@@ -1,14 +1,10 @@
 # Rails.rootを使用するために必要
 require File.expand_path(File.dirname(__FILE__) + '/environment')
 
+ENV.each { |k, v| env(k, v) }
+
 # cronを実行する環境変数
 rails_env = :development  # 本番環境で実行したい場合は :production に変更
-
-# 必要な環境変数を個別に設定
-env 'RAILS_ENV', rails_env.to_s
-env 'GEM_PATH', ENV['GEM_PATH']
-env 'GEM_HOME', ENV['GEM_HOME']
-env 'PATH', ENV['PATH']
 
 # cronを実行する環境変数をセット
 set :environment, rails_env
@@ -17,7 +13,7 @@ set :environment, rails_env
 set :output, "#{Rails.root}/log/cron.log"
 
 # 1分毎にrakeタスクを実行
-every 1.minute do # 注意: '1.minutes' から '1.minute' に変更
+every 1.minute do
   rake 'import:users'
 end
 
