@@ -1,10 +1,9 @@
 namespace :import do
-  desc "Import users from CSV"
+  desc "CSVファイルからUserの情報をデータベースに保存する"
   task users: :environment do
     require 'csv'
 
     csv_file_path = Rails.root.join('db', 'csv', 'test.csv')
-    error_count = 0
     user_data = []
 
     ActiveRecord::Base.transaction do
@@ -25,9 +24,8 @@ namespace :import do
             address5: row['address5'].blank? ? "入力されてません" : row['address5'],
             birthday: row['birthday']
           }
-        rescue ActiveRecord::StatementInvalid => e
-          error_count += 1
-          puts "SQLエラーが発生しました: #{e.message}"
+        rescue => e 
+          puts "行の処理中にエラーが発生しました: #{e.message}"
           raise ActiveRecord::Rollback # トランザクションをロールバックする
         end
       end
@@ -38,7 +36,7 @@ namespace :import do
         puts "ユーザーを #{user_data.size} 件、正常に登録しました。"
       rescue => e
         puts "ユーザーの登録中にエラーが発生しました: #{e.message}"
-        puts "エラー件数: #{error_count}"
+        raise ActiveRecord::Rollback # トランザクションをロールバックする
       end
     end 
 
