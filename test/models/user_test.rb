@@ -12,8 +12,11 @@ class UserTest < ActiveSupport::TestCase
       mobile: '0987654321',
       mail: 'testuser@example.com',
       zip: '123-4567',
-      address1: 'Test Address 1',s
+      address1: 'Test Address 1',
       address2: 'Test Address 2',
+      address3: 'Test Address 3',
+      address4: 'Test Address 4',
+      address5: 'Test Address 5',
       birthday: '1990-01-01'
     )
   end
