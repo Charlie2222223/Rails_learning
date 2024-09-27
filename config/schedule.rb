@@ -1,11 +1,14 @@
 # Rails.rootを使用するために必要
 require File.expand_path(File.dirname(__FILE__) + '/environment')
 
-# 環境変数を設定
-ENV.each { |k, v| env(k, v) }
-
 # cronを実行する環境変数
-rails_env = :development  #本番環境で実行したい場合、RAILS_ENV=productionが必要
+rails_env = :development  # 本番環境で実行したい場合は :production に変更
+
+# 必要な環境変数を個別に設定
+env 'RAILS_ENV', rails_env.to_s
+env 'GEM_PATH', ENV['GEM_PATH']
+env 'GEM_HOME', ENV['GEM_HOME']
+env 'PATH', ENV['PATH']
 
 # cronを実行する環境変数をセット
 set :environment, rails_env
