@@ -5,7 +5,7 @@ require File.expand_path(File.dirname(__FILE__) + '/environment')
 ENV.each { |k, v| env(k, v) }
 
 # cronを実行する環境変数
-rails_env = :development
+rails_env = :development  #本番環境で実行したい場合、RAILS_ENV=productionが必要
 
 # cronを実行する環境変数をセット
 set :environment, rails_env

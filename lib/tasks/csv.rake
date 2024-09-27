@@ -1,5 +1,5 @@
 namespace :import do
-  desc "Import users from CSV"
+  desc "CSVファイルからUserの情報をデータベースに保存する"
   task users: :environment do
     require 'csv'
 

@@ -1,7 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# test/fixtures/departments.yml
 one:
-  name: MyString
+  name: "Human Resources"
+  
 
 two:
-  name: MyString
+  name: "Finance"
+  
