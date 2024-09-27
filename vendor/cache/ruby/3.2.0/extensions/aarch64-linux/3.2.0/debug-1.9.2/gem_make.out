@@ -3,17 +3,17 @@ current directory: /myapp/vendor/cache/ruby/3.2.0/gems/debug-1.9.2/ext/debug
 creating Makefile
 
 current directory: /myapp/vendor/cache/ruby/3.2.0/gems/debug-1.9.2/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20240926-3975-71khbd sitelibdir\=./.gem.20240926-3975-71khbd clean
+make DESTDIR\= sitearchdir\=./.gem.20240927-5375-7dx8v6 sitelibdir\=./.gem.20240927-5375-7dx8v6 clean
 
 current directory: /myapp/vendor/cache/ruby/3.2.0/gems/debug-1.9.2/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20240926-3975-71khbd sitelibdir\=./.gem.20240926-3975-71khbd
+make DESTDIR\= sitearchdir\=./.gem.20240927-5375-7dx8v6 sitelibdir\=./.gem.20240927-5375-7dx8v6
 compiling debug.c
 compiling iseq_collector.c
 linking shared-object debug/debug.so
 
 current directory: /myapp/vendor/cache/ruby/3.2.0/gems/debug-1.9.2/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20240926-3975-71khbd sitelibdir\=./.gem.20240926-3975-71khbd install
-/usr/bin/install -c -m 0755 debug.so ./.gem.20240926-3975-71khbd/debug
+make DESTDIR\= sitearchdir\=./.gem.20240927-5375-7dx8v6 sitelibdir\=./.gem.20240927-5375-7dx8v6 install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20240927-5375-7dx8v6/debug
 
 current directory: /myapp/vendor/cache/ruby/3.2.0/gems/debug-1.9.2/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20240926-3975-71khbd sitelibdir\=./.gem.20240926-3975-71khbd clean
+make DESTDIR\= sitearchdir\=./.gem.20240927-5375-7dx8v6 sitelibdir\=./.gem.20240927-5375-7dx8v6 clean

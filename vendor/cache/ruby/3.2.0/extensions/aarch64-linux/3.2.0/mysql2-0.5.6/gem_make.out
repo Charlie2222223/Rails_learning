@@ -30,10 +30,10 @@ Setting libpath to /usr/lib/aarch64-linux-gnu/
 creating Makefile
 
 current directory: /myapp/vendor/cache/ruby/3.2.0/gems/mysql2-0.5.6/ext/mysql2
-make DESTDIR\= sitearchdir\=./.gem.20240926-3975-asfjr8 sitelibdir\=./.gem.20240926-3975-asfjr8 clean
+make DESTDIR\= sitearchdir\=./.gem.20240927-5375-ijmfdp sitelibdir\=./.gem.20240927-5375-ijmfdp clean
 
 current directory: /myapp/vendor/cache/ruby/3.2.0/gems/mysql2-0.5.6/ext/mysql2
-make DESTDIR\= sitearchdir\=./.gem.20240926-3975-asfjr8 sitelibdir\=./.gem.20240926-3975-asfjr8
+make DESTDIR\= sitearchdir\=./.gem.20240927-5375-ijmfdp sitelibdir\=./.gem.20240927-5375-ijmfdp
 compiling client.c
 In file included from client.c:15:
 mysql_enc_name_to_ruby.h: In function ‘mysql2_mysql_enc_name_to_rb_hash’:
@@ -83,8 +83,8 @@ cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ 
 linking shared-object mysql2/mysql2.so
 
 current directory: /myapp/vendor/cache/ruby/3.2.0/gems/mysql2-0.5.6/ext/mysql2
-make DESTDIR\= sitearchdir\=./.gem.20240926-3975-asfjr8 sitelibdir\=./.gem.20240926-3975-asfjr8 install
-/usr/bin/install -c -m 0755 mysql2.so ./.gem.20240926-3975-asfjr8/mysql2
+make DESTDIR\= sitearchdir\=./.gem.20240927-5375-ijmfdp sitelibdir\=./.gem.20240927-5375-ijmfdp install
+/usr/bin/install -c -m 0755 mysql2.so ./.gem.20240927-5375-ijmfdp/mysql2
 
 current directory: /myapp/vendor/cache/ruby/3.2.0/gems/mysql2-0.5.6/ext/mysql2
-make DESTDIR\= sitearchdir\=./.gem.20240926-3975-asfjr8 sitelibdir\=./.gem.20240926-3975-asfjr8 clean
+make DESTDIR\= sitearchdir\=./.gem.20240927-5375-ijmfdp sitelibdir\=./.gem.20240927-5375-ijmfdp clean
