@@ -29,10 +29,10 @@ namespace :import do
       begin
         User.insert_all(user_data)
         puts "ユーザーを #{user_data.size} 件、正常に登録しました。"
-      rescue => ActiveRecord::RecordInvalid => exception
-        puts "ユーザーの登録中にエラーが発生しました: #{e.message}"
-        raise ActiveRecord::Rollback # トランザクションをロールバックする
+      rescue ActiveRecord::StatementInvalid => exception
+        puts "SQLエラーが発生しました: #{exception.message}"
+        raise ActiveRecord::Rollback
       end
-    end # ここでトランザクションを閉じる
-  end # ここでタスクを閉じる
-end # ここでネームスペースを閉じる
+    end 
+  end 
+end 
