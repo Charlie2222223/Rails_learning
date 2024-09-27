@@ -1,10 +1,11 @@
 # Rails.rootを使用するために必要
 require File.expand_path(File.dirname(__FILE__) + '/environment')
 
+# 環境変数を設定
 ENV.each { |k, v| env(k, v) }
 
 # cronを実行する環境変数
-rails_env = :development  # 本番環境で実行したい場合は :production に変更
+rails_env = :development  #本番環境で実行したい場合、RAILS_ENV=productionが必要
 
 # cronを実行する環境変数をセット
 set :environment, rails_env
@@ -13,7 +14,7 @@ set :environment, rails_env
 set :output, "#{Rails.root}/log/cron.log"
 
 # 1分毎にrakeタスクを実行
-every 1.minute do
+every 1.minute do # 注意: '1.minutes' から '1.minute' に変更
   rake 'import:users'
 end
 
